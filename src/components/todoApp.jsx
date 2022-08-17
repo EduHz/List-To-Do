@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Todo from "./todo";
+import './todoApp.css'; //con ".css" , osea con la extencion, para que react reconozca que no es un archivo js
 
 export default function TodoApp() {
   const [title, setTitle] = useState("Hola");
@@ -21,14 +22,19 @@ export default function TodoApp() {
 
     const temp = [...todos];
     temp.unshift(newTodo);
+    setTodos(temp);
+    setTitle("");
+  }
 
+  function handleUpdate(id, value) {
+    const temp = [...todos];
+    const item = temp.find((item) => item.id === id);
+    item.title = value;
     setTodos(temp);
   }
 
-  function handleUpdate(id,value){
-    const temp = [...todos];
-    const item = temp.find(item => item.id === id);
-    item.title = value;
+  function handleDelete(id) {
+    const temp = todos.filter((item) => item.id !== id);
     setTodos(temp);
   }
 
@@ -46,7 +52,12 @@ export default function TodoApp() {
 
       <div className="todosContainer">
         {todos.map((item) => (
-          <Todo key={item.id} item={item} onUpdate={handleUpdate} />
+          <Todo
+            key={item.id}
+            item={item}
+            onUpdate={handleUpdate}
+            onDelete={handleDelete}
+          />
         ))}
       </div>
     </div>
