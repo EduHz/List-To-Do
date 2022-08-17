@@ -3,7 +3,7 @@ import Todo from "./todo";
 import './todoApp.css'; //con ".css" , osea con la extencion, para que react reconozca que no es un archivo js
 
 export default function TodoApp() {
-  const [title, setTitle] = useState("Hola");
+  const [title, setTitle] = useState("");
   const [todos, setTodos] = useState([]);
 
   function handleChange(event) {
