@@ -13,7 +13,8 @@ export default function TodoApp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
+    if (title === '') return alert("vacio");
+    
     const newTodo = {
       id: crypto.randomUUID(),
       title: title,
