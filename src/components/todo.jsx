@@ -24,7 +24,7 @@ export default function Todo({ item, onUpdate, onDelete }) {
           type="text"
           className="todoInput"
           onChange={handleChange}
-          value={newValue}
+          value={newValue}         
         />
         <button className="button" onClick={handleClickUpdateTodo}>
           Update

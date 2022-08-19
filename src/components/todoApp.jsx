@@ -13,7 +13,7 @@ export default function TodoApp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (title === '') return alert("vacio");
+    if (title === '') return alert("- cannot be empty -");
     
     const newTodo = {
       id: crypto.randomUUID(),
@@ -42,7 +42,7 @@ export default function TodoApp() {
   return (
     <div className="todoContainer">
       <form className="todoCreateForm" onSubmit={handleSubmit}>
-        <input onChange={handleChange} className="todoInput" value={title} />
+        <input onChange={handleChange} className="todoInput" value={title} placeholder="Insert a todo..."/>
         <input
           onClick={handleSubmit}
           type="submit"
