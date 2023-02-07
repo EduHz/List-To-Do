@@ -1,5 +1,5 @@
 ﻿## List to do
-Live demo : https://list-to-do-nine.vercel.app/
+Live Demo : https://list-to-do-nine.vercel.app/
  
 This was one of my first react projects. In this project, I learned how to handle react-states.
 
