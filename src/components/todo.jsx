@@ -12,7 +12,6 @@ export default function Todo({ item, onUpdate, onDelete }) {
       const value = e.target.value;
       setNewValue(value);
     }
-
     function handleClickUpdateTodo() {
       onUpdate(item.id, newValue);
       setIsEdit(false);
