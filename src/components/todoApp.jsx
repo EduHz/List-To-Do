@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import Todo from "./todo";
-import './todoApp.css'; //con ".css" , osea con la extencion, para que react reconozca que no es un archivo js
+import './todoApp.css';
 
 export default function TodoApp() {
   const [title, setTitle] = useState("");
@@ -13,10 +14,12 @@ export default function TodoApp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (title === '') return alert("- cannot be empty -");
+    if (title === '') {
+      return alert("- cannot be empty -");
+    }
     
     const newTodo = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       title: title,
       completed: false,
     };
@@ -42,7 +45,12 @@ export default function TodoApp() {
   return (
     <div className="todoContainer">
       <form className="todoCreateForm" onSubmit={handleSubmit}>
-        <input onChange={handleChange} className="todoInput" value={title} placeholder="Insert a todo..."/>
+        <input
+          onChange={handleChange}
+          className="todoInput"
+          value={title}
+          placeholder="Insert a todo..."
+        />
         <input
           onClick={handleSubmit}
           type="submit"
@@ -64,6 +72,7 @@ export default function TodoApp() {
     </div>
   );
 }
+
 
 /* 
 Notas:
